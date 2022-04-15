@@ -1,17 +1,17 @@
 local core_plugins = {
   -- Packer can manage itself as an optional plugin
-  { "git@github.com:wbthomason/packer.nvim.git" },
-  { "git@github.com:neovim/nvim-lspconfig.git" },
-  { "git@github.com:tamago324/nlsp-settings.nvim.git" },
+  { "wbthomason/packer.nvim" },
+  { "neovim/nvim-lspconfig" },
+  { "tamago324/nlsp-settings.nvim" },
   {
-    "git@github.com:jose-elias-alvarez/null-ls.nvim.git",
+    "jose-elias-alvarez/null-ls.nvim",
   },
-  { "git@github.com:antoinemadec/FixCursorHold.nvim.git" }, -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
+  { "antoinemadec/FixCursorHold.nvim" }, -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
   {
-    "git@github.com:williamboman/nvim-lsp-installer.git",
+    "williamboman/nvim-lsp-installer",
   },
   {
-    "git@github.com:lunarvim/onedarker.nvim.git",
+    "lunarvim/onedarker.nvim",
     config = function()
       pcall(function()
         if lvim and lvim.colorscheme == "onedarker" then
@@ -23,21 +23,21 @@ local core_plugins = {
     disable = lvim.colorscheme ~= "onedarker",
   },
   {
-    "git@github.com:rcarriga/nvim-notify.git",
+    "rcarriga/nvim-notify",
 
     config = function()
       require("lvim.core.notify").setup()
     end,
-    requires = { "git@github.com:nvim-telescope/telescope.nvim.git" },
+    requires = { "nvim-telescope/telescope.nvim" },
     disable = not lvim.builtin.notify.active or not lvim.builtin.telescope.active,
   },
-  { "git@github.com:Tastyep/structlog.nvim.git" },
+  { "Tastyep/structlog.nvim" },
 
-  { "git@github.com:nvim-lua/popup.nvim.git" },
-  { "git@github.com:nvim-lua/plenary.nvim.git" },
+  { "nvim-lua/popup.nvim" },
+  { "nvim-lua/plenary.nvim" },
   -- Telescope
   {
-    "git@github.com:nvim-telescope/telescope.nvim.git",
+    "nvim-telescope/telescope.nvim",
 
     config = function()
       require("lvim.core.telescope").setup()
@@ -45,29 +45,29 @@ local core_plugins = {
     disable = not lvim.builtin.telescope.active,
   },
   {
-    "git@github.com:nvim-telescope/telescope-fzf-native.nvim.git",
-    requires = { "git@github.com:nvim-telescope/telescope.nvim.git" },
+    "nvim-telescope/telescope-fzf-native.nvim",
+    requires = { "nvim-telescope/telescope.nvim" },
     run = "make",
     disable = not lvim.builtin.telescope.active,
   },
   -- Install nvim-cmp, and buffer source as a dependency
   {
-    "git@github.com:hrsh7th/nvim-cmp.git",
+    "hrsh7th/nvim-cmp",
     config = function()
       if lvim.builtin.cmp then
         require("lvim.core.cmp").setup()
       end
     end,
     requires = {
-      "git@github.com:L3MON4D3/LuaSnip.git",
-      "git@github.com:rafamadriz/friendly-snippets.git",
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
     },
   },
   {
-    "git@github.com:rafamadriz/friendly-snippets.git",
+    "rafamadriz/friendly-snippets",
   },
   {
-    "git@github.com:L3MON4D3/LuaSnip.git",
+    "L3MON4D3/LuaSnip",
     config = function()
       local utils = require "lvim.utils"
       require("luasnip.loaders.from_lua").lazy_load()
@@ -81,25 +81,25 @@ local core_plugins = {
     end,
   },
   {
-    "git@github.com:hrsh7th/cmp-nvim-lsp.git",
+    "hrsh7th/cmp-nvim-lsp",
   },
   {
-    "git@github.com:saadparwaiz1/cmp_luasnip.git",
+    "saadparwaiz1/cmp_luasnip",
   },
   {
-    "git@github.com:hrsh7th/cmp-buffer.git",
+    "hrsh7th/cmp-buffer",
   },
   {
-    "git@github.com:hrsh7th/cmp-path.git",
+    "hrsh7th/cmp-path",
   },
   {
-    "git@github.com:folke/lua-dev.nvim.git",
+    "folke/lua-dev.nvim",
     module = "lua-dev",
   },
 
   -- Autopairs
   {
-    "git@github.com:windwp/nvim-autopairs.git",
+    "windwp/nvim-autopairs",
     -- event = "InsertEnter",
     config = function()
       require("lvim.core.autopairs").setup()
@@ -109,7 +109,7 @@ local core_plugins = {
 
   -- Treesitter
   {
-    "git@github.com:nvim-treesitter/nvim-treesitter.git",
+    "nvim-treesitter/nvim-treesitter",
     branch = vim.fn.has "nvim-0.6" == 1 and "master" or "0.5-compat",
     -- run = ":TSUpdate",
     config = function()
@@ -117,13 +117,13 @@ local core_plugins = {
     end,
   },
   {
-    "git@github.com:JoosepAlviste/nvim-ts-context-commentstring.git",
+    "JoosepAlviste/nvim-ts-context-commentstring",
     event = "BufReadPost",
   },
 
   -- NvimTree
   {
-    "git@github.com:kyazdani42/nvim-tree.lua.git",
+    "kyazdani42/nvim-tree.lua",
     -- event = "BufWinOpen",
     -- cmd = "NvimTreeToggle",
     config = function()
@@ -133,7 +133,7 @@ local core_plugins = {
   },
 
   {
-    "git@github.com:lewis6991/gitsigns.nvim.git",
+    "lewis6991/gitsigns.nvim",
 
     config = function()
       require("lvim.core.gitsigns").setup()
@@ -144,7 +144,7 @@ local core_plugins = {
 
   -- Whichkey
   {
-    "git@github.com:folke/which-key.nvim.git",
+    "folke/which-key.nvim",
     config = function()
       require("lvim.core.which-key").setup()
     end,
@@ -154,7 +154,7 @@ local core_plugins = {
 
   -- Comments
   {
-    "git@github.com:numToStr/Comment.nvim.git",
+    "numToStr/Comment.nvim",
     event = "BufRead",
     config = function()
       require("lvim.core.comment").setup()
@@ -164,7 +164,7 @@ local core_plugins = {
 
   -- project.nvim
   {
-    "git@github.com:ahmedkhalf/project.nvim.git",
+    "ahmedkhalf/project.nvim",
     config = function()
       require("lvim.core.project").setup()
     end,
@@ -172,12 +172,12 @@ local core_plugins = {
   },
 
   -- Icons
-  { "git@github.com:kyazdani42/nvim-web-devicons.git" },
+  { "kyazdani42/nvim-web-devicons" },
 
   -- Status Line and Bufferline
   {
     -- "hoob3rt/lualine.nvim",
-    "git@github.com:nvim-lualine/lualine.nvim.git",
+    "nvim-lualine/lualine.nvim",
     -- "Lunarvim/lualine.nvim",
     config = function()
       require("lvim.core.lualine").setup()
@@ -186,7 +186,7 @@ local core_plugins = {
   },
 
   {
-    "git@github.com:akinsho/bufferline.nvim.git",
+    "akinsho/bufferline.nvim",
     config = function()
       require("lvim.core.bufferline").setup()
     end,
@@ -197,7 +197,7 @@ local core_plugins = {
 
   -- Debugging
   {
-    "git@github.com:mfussenegger/nvim-dap.git",
+    "mfussenegger/nvim-dap",
     -- event = "BufWinEnter",
     config = function()
       require("lvim.core.dap").setup()
@@ -207,7 +207,7 @@ local core_plugins = {
 
   -- Debugger management
   {
-    "git@github.com:Pocco81/DAPInstall.nvim.git",
+    "Pocco81/DAPInstall.nvim",
     -- event = "BufWinEnter",
     -- event = "BufRead",
     disable = not lvim.builtin.dap.active,
@@ -215,7 +215,7 @@ local core_plugins = {
 
   -- alpha
   {
-    "git@github.com:goolord/alpha-nvim.git",
+    "goolord/alpha-nvim",
     config = function()
       require("lvim.core.alpha").setup()
     end,
@@ -224,7 +224,7 @@ local core_plugins = {
 
   -- Terminal
   {
-    "git@github.com:akinsho/toggleterm.nvim.git",
+    "akinsho/toggleterm.nvim",
     event = "BufWinEnter",
     branch = "main",
     config = function()
@@ -235,7 +235,7 @@ local core_plugins = {
 
   -- SchemaStore
   {
-    "git@github.com:b0o/schemastore.nvim.git",
+    "b0o/schemastore.nvim",
   },
 }
 
