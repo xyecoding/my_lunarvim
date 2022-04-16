@@ -1,3 +1,4 @@
+-- rolling
 local init_path = debug.getinfo(1, "S").source:sub(2)
 local base_dir = init_path:match("(.*[/\\])"):sub(1, -2)
 
