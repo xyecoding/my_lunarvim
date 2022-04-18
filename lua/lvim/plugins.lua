@@ -155,6 +155,7 @@ local core_plugins = {
   -- Comments
   {
     "git@github.com:numToStr/Comment.nvim.git",
+    tag = 'v0.6',
     event = "BufRead",
     config = function()
       require("lvim.core.comment").setup()
