@@ -16,7 +16,16 @@ lvim.colorscheme = "onedarker"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode = {
+  ["<C-s>"] = ":w<cr>",
+  ["<C-a>"] = ":q<cr>",
+  ["<C-q>"] = ":q!<cr>",
+}
+lvim.keys.insert_mode = {
+  ["<C-s>"] = "<esc>:w<cr>",
+  ["<C-a>"] = "<esc>:q<cr>",
+  ["<C-q>"] = "<esc>:q!<cr>",
+}
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
