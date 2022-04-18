@@ -14,7 +14,7 @@ function plugin_loader.init(opts)
   opts = opts or {}
 
   local install_path = opts.install_path
-    or join_paths(vim.fn.stdpath "data", "site", "pack", "packer", "start", "packer.nvim")
+      or join_paths(vim.fn.stdpath "data", "site", "pack", "packer", "start", "packer.nvim")
 
   local init_opts = {
     package_root = opts.package_root or join_paths(vim.fn.stdpath "data", "site", "pack"),
