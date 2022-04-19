@@ -65,6 +65,7 @@ function M.common_capabilities()
   return capabilities
 end
 
+-- Write by Ye. Disable the lsp formatters if the null-ls formatter is available
 local function select_default_formater(client)
   if client.name == "null-ls" or not client.resolved_capabilities.document_formatting then
     return

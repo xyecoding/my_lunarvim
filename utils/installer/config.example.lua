@@ -14,12 +14,15 @@ lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
-lvim.leader = "space"
+lvim.leader = ","
 -- add your own keymapping
 lvim.keys.normal_mode = {
   ["<C-S>"] = ":w<CR>",
   ["<C-A>"] = ":q<CR>",
   ["<C-Q>"] = ":q!<CR>",
+  ["<A-,>"] = ":bp<CR>",
+  ["<A-.>"] = ":bn<CR>",
+  ["\\d"] = ":bd<CR>"
 }
 lvim.keys.insert_mode = {
   ["<C-S>"] = "<ESC>:w<CR>",
