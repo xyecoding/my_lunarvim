@@ -136,9 +136,8 @@ formatters.setup {
   --   },
   {
     command = "latexindent",
-    args = { "-", "-m" },
+    extra_args = { "-m" },
     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    to_stdin = true,
     filetypes = { "tex" },
   },
 }
