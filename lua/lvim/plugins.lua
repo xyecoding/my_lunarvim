@@ -1,13 +1,23 @@
 local core_plugins = {
   -- Packer can manage itself as an optional plugin
   { "git@github.com:wbthomason/packer.nvim.git" },
+  -- This plugin allows for declaratively configuring, lanching, and
+  -- initializing language servers you have installed.
+  -- The confiugre file is located in ./lsp/config.lua
   { "git@github.com:neovim/nvim-lspconfig.git" },
+  -- enable confiugre neovim LSP using json/yaml files
+  -- ~/.config/lvim/lsp-settings is the config directory, it is not created now
   { "git@github.com:tamago324/nlsp-settings.nvim.git" },
   {
     "git@github.com:jose-elias-alvarez/null-ls.nvim.git",
   },
-  { "git@github.com:antoinemadec/FixCursorHold.nvim.git" }, -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
+  -- define the wait time of cursor hold
+  { "git@github.com:antoinemadec/FixCursorHold.nvim.git" },
+  -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
   {
+    -- auto install LSP servers locally (inside :echo stdpath("data") )
+    -- ~/.local/share/nvim/lsp_servers
+    -- it requires nvim-lspconfig
     "git@github.com:williamboman/nvim-lsp-installer.git",
   },
   {
