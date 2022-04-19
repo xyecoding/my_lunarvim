@@ -118,20 +118,27 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  --   { command = "black", filetypes = { "python" } },
+  --   { command = "isort", filetypes = { "python" } },
+  --   {
+  --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+  --     command = "prettier",
+  --     ---@usage arguments to pass to the formatter
+  --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+  --     extra_args = { "--print-with", "100" },
+  --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+  --     filetypes = { "typescript", "typescriptreact" },
+  --   },
+  {
+    command = "latexindent",
+    args = { "-", "-m" },
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    to_stdin = true,
+    filetypes = { "tex" },
+  },
+}
 
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
@@ -152,17 +159,26 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+lvim.plugins = {
+  { "git@github.com:lervag/vimtex.git",
+    opt = true,
+    config = function()
+      vim.g.tex_flaver = 'latex'
+      vim.g.vimtex_view_general_viewer = 'qpdfview'
+      -- vim.g.tex_comment_nospell = 1
+      -- vim.g.vimtex_compiler_progname = 'nvr'
+      vim.g.vimtex_view_general_options = [[--unique @pdf\#src:@tex:@line:@col]]
+      vim.g.vimtex_quickfix_ignore_filters = [['Warning', 'warning', 'badness', 'Overfull']]
+      vim.g.vimtex_quickfix_mode = 0
+    end,
+    ft = 'tex'
+  },
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- The vim script command should be write in [[]]
 lvim.autocommands.custom_groups = {
   -- Return to last edit position when opening files (You want this!)
   { "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] },
+  { "BufWritePost", "*.tex", [[:call vimtex#toc#refresh()]] }
 }
