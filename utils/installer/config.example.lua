@@ -13,59 +13,60 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 
--- keymappings [view all the defaults by pressing <leader>Lk]
+-- keymappings [view all the defaults by pressing <leader>lk]
 lvim.leader = ","
 -- add your own keymapping
 lvim.keys.normal_mode = {
-  ["<C-S>"] = ":w<CR>",
-  ["<C-A>"] = ":q<CR>",
-  ["<C-Q>"] = ":q!<CR>",
-  ["<A-,>"] = ":bp<CR>",
-  ["<A-.>"] = ":bn<CR>",
-  ["\\d"] = ":bd<CR>"
+  ["<c-s>"] = ":w<cr>",
+  ["<c-a>"] = ":q<cr>",
+  ["<c-q>"] = ":q!<cr>",
+  ["<a-,>"] = ":bp<cr>",
+  ["<a-.>"] = ":bn<cr>",
+  ["\\d"] = ":bd<cr>",
+  ["0"] = "^"
 }
 lvim.keys.insert_mode = {
-  ["<C-S>"] = "<ESC>:w<CR>",
-  ["<C-A>"] = "<ESC>:q<CR>",
-  ["<C-Q>"] = "<ESC>:q!<CR>",
+  ["<c-s>"] = "<esc>:w<cr>",
+  ["<c-a>"] = "<esc>:q<cr>",
+  ["<c-q>"] = "<esc>:q!<cr>",
 }
 -- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = false
+-- lvim.keys.normal_mode["<c-up>"] = false
 -- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+-- lvim.keys.normal_mode["<c-q>"] = ":q<cr>"
 
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
+-- change telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 -- local _, actions = pcall(require, "telescope.actions")
 -- lvim.builtin.telescope.defaults.mappings = {
 --   -- for input mode
 --   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
+--     ["<c-j>"] = actions.move_selection_next,
+--     ["<c-k>"] = actions.move_selection_previous,
+--     ["<c-n>"] = actions.cycle_history_next,
+--     ["<c-p>"] = actions.cycle_history_prev,
 --   },
 --   -- for normal mode
 --   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
+--     ["<c-j>"] = actions.move_selection_next,
+--     ["<c-k>"] = actions.move_selection_previous,
 --   },
 -- }
 
--- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+-- use which-key to add extra bindings with the leader-key prefix
+-- lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+--   name = "+trouble",
+--   r = { "<cmd>trouble lsp_references<cr>", "references" },
+--   f = { "<cmd>trouble lsp_definitions<cr>", "definitions" },
+--   d = { "<cmd>trouble document_diagnostics<cr>", "diagnostics" },
+--   q = { "<cmd>trouble quickfix<cr>", "quickfix" },
+--   l = { "<cmd>trouble loclist<cr>", "locationlist" },
+--   w = { "<cmd>trouble workspace_diagnostics<cr>", "wordspace diagnostics" },
 -- }
 
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+-- todo: user config for predefined plugins
+-- after changing plugin config exit and reopen lunarvim, run :packerinstall :packercompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
@@ -93,30 +94,30 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
--- generic LSP settings
+-- generic lsp settings
 
 -- ---@usage disable automatic installation of servers
 -- lvim.lsp.automatic_servers_installation = false
 
--- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
+-- ---configure a server manually. !!requires `:lvimcachereset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
 
--- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
--- ---`:LvimInfo` lists which server(s) are skiipped for the current filetype
+-- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!requires `:lvimcachereset` to take effect!!
+-- ---`:lviminfo` lists which server(s) are skiipped for the current filetype
 -- vim.tbl_map(function(server)
 --   return server ~= "emmet_ls"
 -- end, lvim.lsp.automatic_configuration.skipped_servers)
 
 -- -- you can set a custom on_attach function that will be used for all the language servers
--- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
+-- -- see <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
 -- lvim.lsp.on_attach_callback = function(client, bufnr)
 --   local function buf_set_option(...)
 --     vim.api.nvim_buf_set_option(bufnr, ...)
 --   end
---   --Enable completion triggered by <c-x><c-o>
+--   --enable completion triggered by <c-x><c-o>
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
@@ -126,18 +127,18 @@ formatters.setup {
   --   { command = "black", filetypes = { "python" } },
   --   { command = "isort", filetypes = { "python" } },
   --   {
-  --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+  --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/builtins.md#configuration
   --     command = "prettier",
   --     ---@usage arguments to pass to the formatter
   --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
   --     extra_args = { "--print-with", "100" },
-  --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+  --     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
   --     filetypes = { "typescript", "typescriptreact" },
   --   },
   {
     command = "latexindent",
     extra_args = { "-m" },
-    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
     filetypes = { "tex" },
   },
 }
@@ -147,7 +148,7 @@ formatters.setup {
 -- linters.setup {
 --   { command = "flake8", filetypes = { "python" } },
 --   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+--     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/builtins.md#configuration
 --     command = "shellcheck",
 --     ---@usage arguments to pass to the formatter
 --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
@@ -155,23 +156,26 @@ formatters.setup {
 --   },
 --   {
 --     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+--     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
 --     filetypes = { "javascript", "python" },
 --   },
 -- }
 
--- Additional Plugins
+-- additional plugins
 lvim.plugins = {
   { "git@github.com:lervag/vimtex.git",
-    opt = true,
+    -- opt = true,
     config = function()
-      vim.g.tex_flaver = 'latex'
       vim.g.vimtex_view_general_viewer = 'qpdfview'
       -- vim.g.tex_comment_nospell = 1
       -- vim.g.vimtex_compiler_progname = 'nvr'
       vim.g.vimtex_view_general_options = [[--unique @pdf\#src:@tex:@line:@col]]
-      vim.g.vimtex_quickfix_ignore_filters = [['Warning', 'warning', 'badness', 'Overfull']]
-      vim.g.vimtex_quickfix_mode = 0
+      -- vim.g.vimtex_quickfix_ignore_filters = [['Warning', 'warning', 'badness', 'Overfull']]
+      vim.g.vimtex_quickfix_enabled = 0
+      -- vim.g.vimtex_quickfix_autojump = 1
+      -- vim.g.vimtex_quickfix_mode = 2
+      -- vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
+      -- vim.g.vimtex_quickfix_open_on_warning = 1
     end,
     ft = 'tex'
   },
