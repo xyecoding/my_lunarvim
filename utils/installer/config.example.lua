@@ -29,6 +29,7 @@ lvim.keys.insert_mode = {
   ["<c-s>"] = "<esc>:w<cr>",
   ["<c-a>"] = "<esc>:q<cr>",
   ["<c-q>"] = "<esc>:q!<cr>",
+  ["<c-l>"] = "<right>",
 }
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<c-up>"] = false
@@ -87,6 +88,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "css",
   "rust",
   "java",
+  "latex",
+  "bibtex",
   "yaml",
   "fish"
 }
@@ -172,12 +175,21 @@ lvim.plugins = {
       vim.g.vimtex_view_general_options = [[--unique @pdf\#src:@tex:@line:@col]]
       -- vim.g.vimtex_quickfix_ignore_filters = [['Warning', 'warning', 'badness', 'Overfull']]
       vim.g.vimtex_quickfix_enabled = 0
+      -- vim.g.vimtex_syntax_enabled = 1
       -- vim.g.vimtex_quickfix_autojump = 1
       -- vim.g.vimtex_quickfix_mode = 2
       -- vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
       -- vim.g.vimtex_quickfix_open_on_warning = 1
+      -- vim.g.vimtex_compiler_latexmk = [[{ 'build_dir' : '',  'callback' : 1,  'continuous' : 1,  'executable' : 'latexmk',  'hooks' : [],  'options' : [    '-verbose',    '-synctex=1',    '-interaction=nonstopmode',  ], }]]
+      -- vim.g.vimtex_quickfix_method = "pplattex"
     end,
     ft = 'tex'
+  },
+  {
+    "git@github.com:ellisonleao/glow.nvim.git",
+    branch = "main",
+    ft = { "markdown" }
+    -- run = "yay -S glow"
   },
 }
 
@@ -186,5 +198,4 @@ lvim.plugins = {
 lvim.autocommands.custom_groups = {
   -- Return to last edit position when opening files (You want this!)
   { "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] },
-  { "BufWritePost", "*.tex", [[:call vimtex#toc#refresh()]] }
 }
