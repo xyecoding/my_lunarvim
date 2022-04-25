@@ -16,21 +16,19 @@ lvim.colorscheme = "onedarker"
 -- keymappings [view all the defaults by pressing <leader>lk]
 lvim.leader = ","
 -- add your own keymapping
-lvim.keys.normal_mode = {
-  ["<c-s>"] = ":w<cr>",
-  ["<c-a>"] = ":q<cr>",
-  ["<c-q>"] = ":q!<cr>",
-  ["<a-,>"] = ":bp<cr>",
-  ["<a-.>"] = ":bn<cr>",
-  ["\\d"] = ":bd<cr>",
-  ["0"] = "^"
-}
-lvim.keys.insert_mode = {
-  ["<c-s>"] = "<esc>:w<cr>",
-  ["<c-a>"] = "<esc>:q<cr>",
-  ["<c-q>"] = "<esc>:q!<cr>",
-  ["<c-l>"] = "<right>",
-}
+
+lvim.keys.normal_mode["<c-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<c-a>"] = ":q<cr>"
+lvim.keys.normal_mode["<c-q>"] = ":q!<cr>"
+lvim.keys.normal_mode["<a-,>"] = ":bp<cr>"
+lvim.keys.normal_mode["<a-.>"] = ":bn<cr>"
+lvim.keys.normal_mode["\\d"] = ":bd<cr>"
+lvim.keys.normal_mode["0"] = "^"
+
+lvim.keys.insert_mode["<c-s>"] = "<esc>:w<cr>"
+lvim.keys.insert_mode["<c-a>"] = "<esc>:q<cr>"
+lvim.keys.insert_mode["<c-q>"] = "<esc>:q!<cr>"
+lvim.keys.insert_mode["<c-l>"] = "<right>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<c-up>"] = false
 -- edit a default keymapping
@@ -85,6 +83,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "python",
   "typescript",
   "tsx",
+  "markdown",
   "css",
   "rust",
   "java",
@@ -185,12 +184,25 @@ lvim.plugins = {
     end,
     ft = 'tex'
   },
+  -- {
+  --   "git@github.com:ellisonleao/glow.nvim.git",
+  --   branch = "main",
+  --   ft = { "markdown" }
+  --   -- run = "yay -S glow"
+  -- },
   {
-    "git@github.com:ellisonleao/glow.nvim.git",
-    branch = "main",
-    ft = { "markdown" }
-    -- run = "yay -S glow"
+    "git@github.com:iamcco/markdown-preview.nvim.git",
+    run = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_markdown_css = [[expand('~/.local/share/lunarvim/lvim/markdown.css')]]
+      -- lvim.keys.normal_mode['\\ll'] = [[<Plug>MarkdownPreview]]
+      vim.cmd([[nmap \ll  <Plug>MarkdownPreview]])
+    end,
   },
+  { "git@github.com:dkarter/bullets.vim.git",
+    ft = { "markdown", "text", "gitcommit", "scratch" }
+  }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
