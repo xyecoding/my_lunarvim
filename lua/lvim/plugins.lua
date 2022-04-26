@@ -79,18 +79,23 @@ local core_plugins = {
   {
     "git@github.com:L3MON4D3/LuaSnip.git",
     config = function()
-      local utils = require "lvim.utils"
-      require("luasnip.loaders.from_lua").lazy_load()
-      require("luasnip.loaders.from_vscode").lazy_load({
+      -- local utils = require "lvim.utils"
+      require("luasnip.loaders.from_lua").lazy_load({
         paths = {
-          -- "~/.config/lvim/snip",
-          -- utils.join_paths(get_config_dir(), "snippets"),
-          -- utils.join_paths(get_runtime_dir(), "site", "pack", "packer", "start", "friendly-snippets"),
-          "~/.local/share/lunarvim/site/pack/packer/start/friendly-snippets",
-          "~/.local/share/lunarvim/lvim/snippets"
+          "~/.local/share/lunarvim/lvim/snippets/lua"
         },
       })
-      require("luasnip.loaders.from_snipmate").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load({
+        paths = {
+          "~/.local/share/lunarvim/site/pack/packer/start/friendly-snippets",
+          "~/.local/share/lunarvim/lvim/snippets/vscode"
+        },
+      })
+      require("luasnip.loaders.from_snipmate").lazy_load({
+        paths = {
+          "~/.local/share/lunarvim/lvim/snippets/snipmate"
+        },
+      })
     end,
   },
   {

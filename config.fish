@@ -27,7 +27,7 @@ alias cltp 'rm ~/temp_try/*'
 alias wda 'fish ~/myDiary/create_diary.fish'
 alias cda 'cd ~/myDiary'
 alias tnw 'tmux new-window -n'
-alias bk '~/.vim_runtime/fish_scripts/backup_files.fish'
+alias bk '~/.local/share/lunarvim/lvim/backup_files.fish'
 alias gp 'grep -n -H -R'
 
 set -U FZF_COMPLETE 0
