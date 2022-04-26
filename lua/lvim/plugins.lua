@@ -68,14 +68,14 @@ local core_plugins = {
         require("lvim.core.cmp").setup()
       end
     end,
-    requires = {
-      -- "git@github.com:L3MON4D3/LuaSnip.git",
-      "git@github.com:rafamadriz/friendly-snippets",
-    },
+    -- requires = {
+    --   -- "git@github.com:L3MON4D3/LuaSnip.git",
+    --   "git@github.com:rafamadriz/friendly-snippets",
+    -- },
   },
-  {
-    "git@github.com:rafamadriz/friendly-snippets",
-  },
+  -- {
+  --   "git@github.com:rafamadriz/friendly-snippets",
+  -- },
   {
     "git@github.com:L3MON4D3/LuaSnip.git",
     config = function()
@@ -87,7 +87,6 @@ local core_plugins = {
       })
       require("luasnip.loaders.from_vscode").lazy_load({
         paths = {
-          "~/.local/share/lunarvim/site/pack/packer/start/friendly-snippets",
           "~/.local/share/lunarvim/lvim/snippets/vscode"
         },
       })

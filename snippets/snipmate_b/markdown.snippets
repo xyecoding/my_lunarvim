@@ -142,3 +142,31 @@ snippet pullquote
 	{% pullquote %}
 	${1:text} {" ${2:quote} "} ${0:text}
 	{% endpullquote %}
+
+
+snippet sftm 
+	<font color=magenta>[FROM `!v strftime("%H:%M")`]</font>
+
+snippet sdtm 
+	<font color=red>[DONE `!v strftime("%H:%M")`]</font>
+
+snippet sltt 
+	<font color=blue>**[LONG TIME TASK]**</font>
+
+snippet sfdt 
+	<font color=magenta>[FROM `!v strftime("%Y-%m-%d")`]</font>
+
+snippet srst 
+	<font color=green>[REST `!v strftime("%H:%M")`]</font>
+
+snippet sdl 
+	<font color=red>[DEADLINE $1]</font> $0
+
+snippet sltm 
+	<font color=green>[LEAVE `!v strftime("%H:%M")`]</font>
+
+snippet sctn 
+	[CONTINUE `!v strftime("%H:%M")`]
+
+snippet scolor 
+	<font color=$1>$2</font>$0
