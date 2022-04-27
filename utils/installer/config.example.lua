@@ -12,9 +12,8 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
+local luasnip = require("luasnip")
 
--- keymappings [view all the defaults by pressing <leader>lk]
-lvim.leader = ","
 -- add your own keymapping
 
 lvim.keys.normal_mode["<c-s>"] = ":w<cr>"

@@ -77,15 +77,16 @@ local core_plugins = {
   --   "git@github.com:rafamadriz/friendly-snippets",
   -- },
 
-  {
-    "git@github.com:molleweide/LuaSnip-snippets.nvim",
-  },
+  -- {
+  --   "git@github.com:molleweide/LuaSnip-snippets.nvim",
+  -- },
   {
     "git@github.com:L3MON4D3/LuaSnip.git",
     config = function()
       -- local utils = require "lvim.utils"
-      local luasnip = require("luasnip")
-      luasnip.snippets = require("luasnip_snippets").load_snippets()
+      -- local luasnip = require("luasnip")
+      -- luasnip.snippets = require("luasnip_snippets").load_snippets()
+      -- require("luasnip_snippets").load_snippets()
 
       require("luasnip.loaders.from_lua").lazy_load({
         paths = {
