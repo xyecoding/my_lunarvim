@@ -6,6 +6,7 @@ set -x PATH /usr/local/texlive/2021/bin/x86_64-linux $PATH
 set -x PATH ~/.cargo/bin $PATH
 set -x PATH /home/LunarVim/.fnm $PATH
 set -x PATH ~/.local/bin $PATH
+# set -x PATH /home/LunarVim/.local/share/nvim/lsp_servers/latex/ $PATH
 
 alias vi lvim
 alias v lvim

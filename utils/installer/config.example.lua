@@ -62,7 +62,15 @@ lvim.keys.insert_mode["<c-l>"] = "<right>"
 --   l = { "<cmd>trouble loclist<cr>", "locationlist" },
 --   w = { "<cmd>trouble workspace_diagnostics<cr>", "wordspace diagnostics" },
 -- }
+-- vim.lsp.set_log_level('debug')
+-- require('lspconfig').texlab.setup {
+--   settings = {
+--     latexindent = {
+--       modifyLineBreaks = true,
+--     },
+--   },
 
+-- }
 -- todo: user config for predefined plugins
 -- after changing plugin config exit and reopen lunarvim, run :packerinstall :packercompile
 lvim.builtin.alpha.active = true
@@ -123,26 +131,26 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-  --   { command = "black", filetypes = { "python" } },
-  --   { command = "isort", filetypes = { "python" } },
-  --   {
-  --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/builtins.md#configuration
-  --     command = "prettier",
-  --     ---@usage arguments to pass to the formatter
-  --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-  --     extra_args = { "--print-with", "100" },
-  --     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
-  --     filetypes = { "typescript", "typescriptreact" },
-  --   },
-  {
-    command = "latexindent",
-    extra_args = { "-m" },
-    ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
-    filetypes = { "tex" },
-  },
-}
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup {
+--   --   { command = "black", filetypes = { "python" } },
+--   --   { command = "isort", filetypes = { "python" } },
+--   --   {
+--   --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/builtins.md#configuration
+--   --     command = "prettier",
+--   --     ---@usage arguments to pass to the formatter
+--   --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+--   --     extra_args = { "--print-with", "100" },
+--   --     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
+--   --     filetypes = { "typescript", "typescriptreact" },
+--   --   },
+--   {
+--     command = "latexindent",
+--     extra_args = { "-m" },
+--     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
+--     filetypes = { "tex" },
+--   },
+-- }
 
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
@@ -204,7 +212,7 @@ lvim.plugins = {
   },
   {
     "git@github.com:tpope/vim-surround.git",
-    keys = { "c", "d", "y" },
+    -- keys = { "c", "d", "y" },
     config = function()
       vim.cmd([[autocmd FileType markdown let b:surround_100 = "<s><span>\r</span></s>"]])
     end
@@ -216,5 +224,5 @@ lvim.plugins = {
 lvim.autocommands.custom_groups = {
   -- Return to last edit position when opening files (You want this!)
   { "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] },
-  { "BufReadPost", "*.md", [[let b:surround_100 = "<s><span>\r</span></s>"]] },
+  -- { "BufReadPost", "*.md", [[let b:surround_100 = "<s><span>\r</span></s>"]] },
 }

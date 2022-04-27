@@ -36,7 +36,8 @@ local skipped_servers = {
   "vuels",
 }
 
-local skipped_filetypes = { "markdown", "rst", "plaintext" }
+-- local skipped_filetypes = { "markdown", "rst", "plaintext" }
+local skipped_filetypes = { "rst", "plaintext" }
 
 return {
   templates_dir = join_paths(get_runtime_dir(), "site", "after", "ftplugin"),
