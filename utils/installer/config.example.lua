@@ -161,7 +161,6 @@ formatters.setup {
 --     filetypes = { "javascript", "python" },
 --   },
 -- }
-
 -- additional plugins
 lvim.plugins = {
   { "git@github.com:lervag/vimtex.git",
@@ -194,13 +193,21 @@ lvim.plugins = {
     run = "cd app && npm install",
     ft = "markdown",
     config = function()
-      vim.g.mkdp_markdown_css = [[expand('~/.local/share/lunarvim/lvim/markdown.css')]]
+      local root_dir = os.getenv("HOME")
+      vim.g.mkdp_markdown_css = root_dir .. '/.local/share/lunarvim/lvim/markdown.css'
       -- lvim.keys.normal_mode['\\ll'] = [[<Plug>MarkdownPreview]]
       vim.cmd([[nmap \ll  <Plug>MarkdownPreview]])
     end,
   },
   { "git@github.com:dkarter/bullets.vim.git",
     ft = { "markdown", "text", "gitcommit", "scratch" }
+  },
+  {
+    "git@github.com:tpope/vim-surround.git",
+    keys = { "c", "d", "y" },
+    config = function()
+      vim.cmd([[autocmd FileType markdown let b:surround_100 = "<s><span>\r</span></s>"]])
+    end
   }
 }
 
@@ -209,4 +216,5 @@ lvim.plugins = {
 lvim.autocommands.custom_groups = {
   -- Return to last edit position when opening files (You want this!)
   { "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] },
+  { "BufReadPost", "*.md", [[let b:surround_100 = "<s><span>\r</span></s>"]] },
 }
