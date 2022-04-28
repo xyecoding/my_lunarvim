@@ -27,17 +27,17 @@ local luasnip = require("luasnip")
 
 -- add your own keymapping
 
-lvim.keys.normal_mode["<c-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<c-a>"] = ":q<cr>"
-lvim.keys.normal_mode["<c-q>"] = ":q!<cr>"
+-- lvim.keys.normal_mode["<c-s>"] = ":w<cr>"
+-- lvim.keys.normal_mode["<c-a>"] = ":q<cr>"
+-- lvim.keys.normal_mode["<c-q>"] = ":q!<cr>"
 lvim.keys.normal_mode["<a-,>"] = ":bp<cr>"
 lvim.keys.normal_mode["<a-.>"] = ":bn<cr>"
 lvim.keys.normal_mode["\\d"] = ":bd<cr>"
 lvim.keys.normal_mode["0"] = "^"
 
-lvim.keys.insert_mode["<c-s>"] = "<esc>:w<cr>"
-lvim.keys.insert_mode["<c-a>"] = "<esc>:q<cr>"
-lvim.keys.insert_mode["<c-q>"] = "<esc>:q!<cr>"
+-- lvim.keys.insert_mode["<c-s>"] = "<esc>:w<cr>"
+-- lvim.keys.insert_mode["<c-a>"] = "<esc>:q<cr>"
+-- lvim.keys.insert_mode["<c-q>"] = "<esc>:q!<cr>"
 lvim.keys.insert_mode["<c-l>"] = "<right>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<c-up>"] = false
@@ -64,7 +64,7 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
+-- lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+trouble",
   r = { "<cmd>trouble lsp_references<cr>", "references" },
