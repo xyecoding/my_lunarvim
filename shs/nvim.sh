@@ -1,6 +1,8 @@
 echo -e "\033[31m installing neovim \033[0m"
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt install neovim -y
+# sudo add-apt-repository ppa:neovim-ppa/stable
+# sudo apt install neovim -y
+
+bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
 
 echo -e "\033[31m pip install pyvim and neovim-remote \033[0m"
 ~/anaconda3/bin/pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pynvim neovim-remote
