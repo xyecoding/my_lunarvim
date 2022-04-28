@@ -8,6 +8,17 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
+--debug settings
+-----------------------------------------lspconfig----------------------------------
+-- ~/.cache/nvim/lsp.log run :lua vim.cmd('e'..vim.lsp.get_log_path()) to open it
+vim.lsp.set_log_level("debug")
+-----------------------------------------null-ls----------------------------------
+-- output the log file in ~/.cache/nvim/null-ls.log
+-- require("null-ls").setup({
+--   debug = true
+-- })
+
+
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -62,7 +73,6 @@ lvim.keys.insert_mode["<c-l>"] = "<right>"
 --   l = { "<cmd>trouble loclist<cr>", "locationlist" },
 --   w = { "<cmd>trouble workspace_diagnostics<cr>", "wordspace diagnostics" },
 -- }
--- vim.lsp.set_log_level('debug')
 -- require('lspconfig').texlab.setup {
 --   settings = {
 --     latexindent = {
@@ -90,7 +100,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "python",
   "typescript",
   "tsx",
-  "markdown",
+  -- "markdown",
   "css",
   "rust",
   "java",
@@ -106,7 +116,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- generic lsp settings
 
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
+lvim.lsp.automatic_servers_installation = true
 
 -- ---configure a server manually. !!requires `:lvimcachereset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
@@ -131,26 +141,34 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   --   { command = "black", filetypes = { "python" } },
---   --   { command = "isort", filetypes = { "python" } },
---   --   {
---   --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/builtins.md#configuration
---   --     command = "prettier",
---   --     ---@usage arguments to pass to the formatter
---   --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---   --     extra_args = { "--print-with", "100" },
---   --     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
---   --     filetypes = { "typescript", "typescriptreact" },
---   --   },
---   {
---     command = "latexindent",
---     extra_args = { "-m" },
---     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
---     filetypes = { "tex" },
---   },
--- }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  --   --   { command = "black", filetypes = { "python" } },
+  --   --   { command = "isort", filetypes = { "python" } },
+  --   --   {
+  --   --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/builtins.md#configuration
+  --   --     command = "prettier",
+  --   --     ---@usage arguments to pass to the formatter
+  --   --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+  --   --     extra_args = { "--print-with", "100" },
+  --   --     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
+  --   --     filetypes = { "typescript", "typescriptreact" },
+  --   --   },
+  {
+    command = "latexindent",
+    extra_args = { "-m" },
+    ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
+    filetypes = { "tex" },
+  },
+
+  {
+    command = "prettier",
+    -- extra_args = { "--no-bracket-spacing", " --embedded-language-formatting auto", "  --print-width 80", " --prose-wrap always" },
+    extra_args = { "--no-bracket-spacing", "--print-width=80", "--prose-wrap=always", "--embedded-language-formatting=auto" },
+    ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
+    filetypes = { "markdown" },
+  },
+}
 
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
@@ -216,6 +234,16 @@ lvim.plugins = {
     config = function()
       vim.cmd([[autocmd FileType markdown let b:surround_100 = "<s><span>\r</span></s>"]])
     end
+  },
+  {
+    "git@github.com:preservim/tagbar",
+    config = function()
+      vim.cmd([[nnoremap tb :TagbarOpenAutoClose<CR>]])
+      vim.g.tagbar_sort = 0
+    end
+  },
+  {
+    "git@github.com:taoso/tagbar-markdown"
   }
 }
 

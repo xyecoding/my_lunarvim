@@ -62,11 +62,11 @@ local function client_is_configured(server_name, ft)
   return false
 end
 
--- local function writeFile(content)
---   local f = assert(io.open("/home/LunarVim/luasnip_try.txt", 'a+'))
---   f:write(content)
---   f:close()
--- end
+local function writeFile(content)
+  local f = assert(io.open("/home/LunarVim/luasnip_try.txt", 'a+'))
+  f:write(content)
+  f:close()
+end
 
 ---Setup a language server by providing a name
 ---@param server_name string name of the language server
@@ -74,13 +74,11 @@ end
 function M.setup(server_name, user_config)
   vim.validate { name = { server_name, "string" } }
 
-
   if lvim_lsp_utils.is_client_active(server_name) or client_is_configured(server_name) then
     -- Log:debug(" is not managed by the automatic installer")
     -- os.execute("sleep " .. 100)
     return
   end
-
 
   local config = resolve_config(server_name, user_config)
 

@@ -1,9 +1,14 @@
 local skipped_servers = {
   "angularls",
   "ansiblels",
+  "prosemd_lsp",
+  -- "remark_ls",
+  -- "zk",
   "ccls",
   "csharp_ls",
   "cssmodules_ls",
+  -- "grammarly",
+  -- "zeta-note",
   "denols",
   "ember",
   "emmet_ls",
@@ -36,8 +41,8 @@ local skipped_servers = {
   "vuels",
 }
 
--- local skipped_filetypes = { "markdown", "rst", "plaintext" }
-local skipped_filetypes = { "rst", "plaintext" }
+local skipped_filetypes = { "markdown", "rst", "plaintext" }
+-- local skipped_filetypes = { "rst", "plaintext" }
 
 return {
   templates_dir = join_paths(get_runtime_dir(), "site", "after", "ftplugin"),

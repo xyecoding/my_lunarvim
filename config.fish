@@ -6,6 +6,7 @@ set -x PATH /usr/local/texlive/2021/bin/x86_64-linux $PATH
 set -x PATH ~/.cargo/bin $PATH
 set -x PATH /home/LunarVim/.fnm $PATH
 set -x PATH ~/.local/bin $PATH
+set -x PATH /home/LunarVim/.local/share/nvim/lsp_servers/zeta_note  $PATH
 # set -x PATH /home/LunarVim/.local/share/nvim/lsp_servers/latex/ $PATH
 
 alias vi lvim
@@ -20,9 +21,11 @@ alias cvv 'cd ~/.local/share/lunarvim/lvim/lua/lvim'
 alias cbg 'cd ~/myBlog'
 alias cpp 'cd ~/mypaper/JIFS-OACNN'
 alias csn 'cd ~/.vim_runtime/my_plugins_forked/vim-snippets/UltiSnips'
+
+
 alias vvc 'vi ~/.local/share/lunarvim/lvim/utils/installer/config.example.lua'
 alias vvp 'vi ~/.local/share/lunarvim/lvim/lua/lvim/plugins.lua'
-# alias vvi 'vi ~/.vim_runtime/install_awesome_vimrc.sh'
+alias vvi 'vi ~/.local/share/lunarvim/lvim/init.lua'
 alias vfc 'vi ~/.local/share/lunarvim/lvim/config.fish'
 alias cltp 'rm ~/temp_try/*'
 alias wda 'fish ~/myDiary/create_diary.fish'

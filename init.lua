@@ -6,7 +6,7 @@ if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
   vim.opt.rtp:append(base_dir)
 end
 
-vim.opt.rtp:append("~/.local/share/lunarvim/lvim/snippets/luasnip-snippets")
+-- vim.opt.rtp:append("~/.local/share/lunarvim/lvim/snippets/luasnip-snippets")
 require("lvim.bootstrap"):init(base_dir)
 
 require("lvim.config"):load()
