@@ -17,10 +17,10 @@ set de /mnt/c/Users/12197/Desktop
 set do /mnt/c/Users/12197/Downloads
 alias ctp 'cd ~/temp_try'
 alias cvh 'cd ~/.local/share/lunarvim/lvim'
+alias csn 'cd ~/.local/share/lunarvim/lvim/snippets/vscode/snippets'
 alias cvv 'cd ~/.local/share/lunarvim/lvim/lua/lvim'
 alias cbg 'cd ~/myBlog'
 alias cpp 'cd ~/mypaper/JIFS-OACNN'
-alias csn 'cd ~/.vim_runtime/my_plugins_forked/vim-snippets/UltiSnips'
 
 
 alias vvc 'vi ~/.local/share/lunarvim/lvim/utils/installer/config.example.lua'

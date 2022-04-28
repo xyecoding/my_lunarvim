@@ -11,7 +11,7 @@ an executable
 --debug settings
 -----------------------------------------lspconfig----------------------------------
 -- ~/.cache/nvim/lsp.log run :lua vim.cmd('e'..vim.lsp.get_log_path()) to open it
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
 -----------------------------------------null-ls----------------------------------
 -- output the log file in ~/.cache/nvim/null-ls.log
 -- require("null-ls").setup({
@@ -46,33 +46,35 @@ lvim.keys.insert_mode["<c-l>"] = "<right>"
 
 -- change telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<c-j>"] = actions.move_selection_next,
---     ["<c-k>"] = actions.move_selection_previous,
---     ["<c-n>"] = actions.cycle_history_next,
---     ["<c-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<c-j>"] = actions.move_selection_next,
---     ["<c-k>"] = actions.move_selection_previous,
---   },
--- }
+local _, actions = pcall(require, "telescope.actions")
+
+lvim.builtin.telescope.defaults.mappings = {
+  -- for input mode
+  i = {
+    ["<c-j>"] = actions.move_selection_next,
+    ["<c-k>"] = actions.move_selection_previous,
+    ["<c-n>"] = actions.cycle_history_next,
+    ["<c-p>"] = actions.cycle_history_prev,
+  },
+  -- for normal mode
+  n = {
+    ["<c-j>"] = actions.move_selection_next,
+    ["<c-k>"] = actions.move_selection_previous,
+  },
+}
 
 -- use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+trouble",
---   r = { "<cmd>trouble lsp_references<cr>", "references" },
---   f = { "<cmd>trouble lsp_definitions<cr>", "definitions" },
---   d = { "<cmd>trouble document_diagnostics<cr>", "diagnostics" },
---   q = { "<cmd>trouble quickfix<cr>", "quickfix" },
---   l = { "<cmd>trouble loclist<cr>", "locationlist" },
---   w = { "<cmd>trouble workspace_diagnostics<cr>", "wordspace diagnostics" },
--- }
+lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+trouble",
+  r = { "<cmd>trouble lsp_references<cr>", "references" },
+  f = { "<cmd>trouble lsp_definitions<cr>", "definitions" },
+  d = { "<cmd>trouble document_diagnostics<cr>", "diagnostics" },
+  q = { "<cmd>trouble quickfix<cr>", "quickfix" },
+  l = { "<cmd>trouble loclist<cr>", "locationlist" },
+  w = { "<cmd>trouble workspace_diagnostics<cr>", "wordspace diagnostics" },
+}
+
 -- require('lspconfig').texlab.setup {
 --   settings = {
 --     latexindent = {
@@ -84,11 +86,17 @@ lvim.keys.insert_mode["<c-l>"] = "<right>"
 -- todo: user config for predefined plugins
 -- after changing plugin config exit and reopen lunarvim, run :packerinstall :packercompile
 lvim.builtin.alpha.active = true
+lvim.builtin.dap.active = true
+lvim.builtin.terminal.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+
+lvim.builtin.cmp.completion.keyword_length = 2
+lvim.builtin.telescope.defaults.layout_config.width = 0.95
+lvim.builtin.telescope.defaults.layout_config.preview_cutoff = 75
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
