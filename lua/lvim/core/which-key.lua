@@ -67,7 +67,7 @@ M.config = function()
       [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
       ["w"] = { "<cmd>w<CR>", "Save" },
       ["q"] = { "<cmd>q<CR>", "Quit" },
-      ["Q"] = { "<cmd>q!<CR>", "Quit" },
+      ["Q"] = { "<cmd>q!<CR>", "Quit!" },
       ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
       -- ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
       ["c"] = { "<cmd>bd<CR>", "Close Buffer" },
@@ -197,6 +197,7 @@ M.config = function()
         },
         l = {
           name = "+logs",
+          -- y = { "<cmd>e ~/.cache/mydebug<cr>", "Watch my debug file" },
           d = {
             "<cmd>lua require('lvim.core.terminal').toggle_log_view(require('lvim.core.log').get_path())<cr>",
             "view default log",

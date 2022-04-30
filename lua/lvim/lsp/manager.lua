@@ -20,6 +20,7 @@ end
 ---@param name string
 ---@param user_config table [optional]
 ---@return table
+
 local function resolve_config(name, user_config)
   local config = {
     on_attach = require("lvim.lsp").common_on_attach,
@@ -37,7 +38,7 @@ local function resolve_config(name, user_config)
   if user_config then
     config = vim.tbl_deep_extend("force", config, user_config)
   end
-
+  -- dg:print_r(config)
   return config
 end
 
@@ -62,12 +63,6 @@ local function client_is_configured(server_name, ft)
   return false
 end
 
--- local function writeFile(content)
---   local f = assert(io.open("/home/LunarVim/luasnip_try.txt", 'a+'))
---   f:write(content)
---   f:close()
--- end
-
 ---Setup a language server by providing a name
 ---@param server_name string name of the language server
 ---@param user_config table [optional] when available it will take predence over any default configurations
@@ -76,8 +71,6 @@ function M.setup(server_name, user_config)
 
 
   if lvim_lsp_utils.is_client_active(server_name) or client_is_configured(server_name) then
-    -- Log:debug(" is not managed by the automatic installer")
-    -- os.execute("sleep " .. 100)
     return
   end
 
@@ -87,7 +80,8 @@ function M.setup(server_name, user_config)
   local servers = require "nvim-lsp-installer.servers"
   local server_available, requested_server = servers.get_server(server_name)
 
-  if not server_available then
+  -- if the server is installed then setup by lspconfig
+  if requested_server:is_installed() then
     pcall(function()
       require("lspconfig")[server_name].setup(config)
       buf_try_add(server_name)
@@ -97,6 +91,7 @@ function M.setup(server_name, user_config)
 
   local install_notification = false
 
+  -- if the server is not installed, install it
   if not requested_server:is_installed() then
     if lvim.lsp.automatic_servers_installation then
       Log:debug "Automatic server installation detected"
@@ -112,7 +107,7 @@ function M.setup(server_name, user_config)
       vim.notify(string.format("Installation complete for [%s] server", requested_server.name), vim.log.levels.INFO)
     end
     install_notification = false
-    requested_server:setup(config)
+    -- requested_server:setup(config)
   end)
 end
 

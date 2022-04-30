@@ -12,12 +12,12 @@ formatters.setup {
   --   --     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
   --   --     filetypes = { "typescript", "typescriptreact" },
   --   --   },
-  {
-    command = "latexindent",
-    extra_args = { "-m" },
-    ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
-    filetypes = { "tex" },
-  },
+  -- {
+  --   command = "latexindent",
+  --   extra_args = { "-m" },
+  --   ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
+  --   filetypes = { "tex" },
+  -- },
 
   {
     command = "prettier",
@@ -43,5 +43,18 @@ formatters.setup {
 --     command = "codespell",
 --     ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
 --     filetypes = { "javascript", "python" },
+--   },
+-- }
+local code_actions = require "lvim.lsp.null-ls.code_actions"
+-- code_actions.setup {
+--   {
+--     command = "proselint",
+--     -- args = { "--json" },
+--     args = {},
+--     filetypes = { "markdown", "tex" },
+--   },
+--   {
+--     command = "eslint",
+--     -- filetypes = { "json" },
 --   },
 -- }

@@ -20,6 +20,7 @@ end
 ---@param name string
 ---@param user_config table [optional]
 ---@return table
+
 local function resolve_config(name, user_config)
   local config = {
     on_attach = require("lvim.lsp").common_on_attach,
@@ -37,7 +38,7 @@ local function resolve_config(name, user_config)
   if user_config then
     config = vim.tbl_deep_extend("force", config, user_config)
   end
-
+  -- dg:print_r(config)
   return config
 end
 
@@ -62,29 +63,29 @@ local function client_is_configured(server_name, ft)
   return false
 end
 
-local function writeFile(content)
-  local f = assert(io.open("/home/LunarVim/luasnip_try.txt", 'a+'))
-  f:write(content)
-  f:close()
-end
-
 ---Setup a language server by providing a name
 ---@param server_name string name of the language server
 ---@param user_config table [optional] when available it will take predence over any default configurations
 function M.setup(server_name, user_config)
   vim.validate { name = { server_name, "string" } }
 
+
   if lvim_lsp_utils.is_client_active(server_name) or client_is_configured(server_name) then
-    -- Log:debug(" is not managed by the automatic installer")
-    -- os.execute("sleep " .. 100)
     return
   end
+
 
   local config = resolve_config(server_name, user_config)
 
   local servers = require "nvim-lsp-installer.servers"
   local server_available, requested_server = servers.get_server(server_name)
 
+  -- if not server available in nvim-lsp-installer, call lspconfig[server_name].setup(config)
+  -- if the server is  available it will be set up by nvim-lsp-installer.
+  -- that is to say all the servers will preferentially be set upped by nvim-lsp-installer.
+  -- NOTE THAT
+
+  -- Most servers will be set uppped by nvim-lsp-installer by this way.
   if not server_available then
     pcall(function()
       require("lspconfig")[server_name].setup(config)

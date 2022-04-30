@@ -4,10 +4,11 @@ set -x PATH /usr/local/luarocks/bin $PATH
 set -x PATH /usr/local/texlive/2021/bin/x86_64-linux $PATH
 
 set -x PATH ~/.cargo/bin $PATH
-set -x PATH /home/LunarVim/.fnm $PATH
+set -x PATH ~/.fnm $PATH
 set -x PATH ~/.local/bin $PATH
-set -x PATH /home/LunarVim/.local/share/nvim/lsp_servers/zeta_note  $PATH
-# set -x PATH /home/LunarVim/.local/share/nvim/lsp_servers/latex/ $PATH
+set -x PATH ~/.local/share/nvim/lsp_servers/zeta_note  $PATH
+set -x PATH ~/.local/share/nvim/lsp_servers/latex/ $PATH
+set -x PATH ~/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin $PATH
 
 alias vi lvim
 alias v lvim

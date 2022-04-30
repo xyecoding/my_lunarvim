@@ -70,7 +70,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "python",
   "typescript",
   "tsx",
-  -- "markdown",
+  "markdown",
   "css",
   "rust",
   "java",
