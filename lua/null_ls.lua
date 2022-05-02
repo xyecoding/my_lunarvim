@@ -21,9 +21,7 @@ formatters.setup {
 
   {
     command = "prettier",
-    -- extra_args = { "--no-bracket-spacing", " --embedded-language-formatting auto", "  --print-width 80", " --prose-wrap always" },
     extra_args = { "--no-bracket-spacing", "--print-width=80", "--prose-wrap=always", "--embedded-language-formatting=auto" },
-    ---@usage specify which filetypes to enable. by default a providers will attach to all the filetypes it supports.
     filetypes = { "markdown" },
   },
 }
