@@ -1,5 +1,16 @@
 lvim.plugins = {
   {
+    "git@github.com:mbbill/undotree",
+    config = function()
+      vim.cmd(
+      [[
+      let g:undotree_WindowLayout = 2
+      nnoremap <leader>ut :UndotreeToggle<CR><C-w>w<C-w>w
+]]
+      )
+    end
+  },
+  {
     "git@github.com:L3MON4D3/LuaSnip",
     config = function()
       local utils = require "lvim.utils"

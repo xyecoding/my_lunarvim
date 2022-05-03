@@ -16,6 +16,10 @@ vim.opt["cmdheight"] = 1
 vim.opt["clipboard"] = ""
 vim.opt["wrap"] = true
 vim.opt["mouse"] = ""
+vim.opt["foldmethod"] = "expr"
+vim.opt["foldenable"] = false
+vim.opt["foldlevel"] = 99
+vim.opt["foldexpr"] = "nvim_treesitter#foldexpr()"
 -- vim.opt["swapfile"] = true
 -- vim.opt.swapfile = true
 
@@ -100,13 +104,3 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- ---@usage disable automatic installation of servers
 lvim.lsp.automatic_servers_installation = true
-
-
-
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- The vim script command should be write in [[]]
-lvim.autocommands.custom_groups = {
-  -- Return to last edit position when opening files (You want this!)
-  { "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] },
-  -- { "BufReadPost", "*.md", [[let b:surround_100 = "<s><span>\r</span></s>"]] },
-}

@@ -9,9 +9,10 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 vim.opt.rtp:append("~/.config/lvim/mylvim")
--- require('plugins')
+require('plugins')
 require("null_ls")
 require("debug")
 require("lsp")
 require("basic")
+require("autocommand")
 vim.opt.rtp:append("~/.config/lvim/mylvim/after")
