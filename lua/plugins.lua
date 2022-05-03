@@ -78,6 +78,7 @@ lvim.plugins = {
     end
   },
   {
-    "git@github.com:taoso/tagbar-markdown"
+    "git@github.com:taoso/tagbar-markdown",
+    ft = "markdown"
   }
 }
