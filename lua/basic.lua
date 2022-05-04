@@ -48,7 +48,7 @@ lvim.builtin.telescope.defaults.mappings = {
 
 lvim.builtin.which_key.mappings["w"] = { "<cmd>w<CR>", "Save" }
 lvim.builtin.which_key.mappings["q"] = { "<cmd>q<CR>", "Quit" }
-lvim.builtin.which_key.mappings["Q"] = { "<cmd>q!<CR>", "Quit" }
+lvim.builtin.which_key.mappings["Q"] = { "<cmd>q!<CR>", "Quit!" }
 -- use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
 

@@ -1,5 +1,84 @@
 lvim.plugins = {
   {
+    "git@github.com:j-hui/fidget.nvim",
+    config = function()
+      require("conf.fidget").setup()
+    end,
+  },
+  {
+    "git@github.com:nvim-pack/nvim-spectre",
+    config = function()
+      require("conf.nvim-spectre").setup()
+    end,
+  },
+  {
+    "git@github.com:andymass/vim-matchup",
+    event = "CursorMoved",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
+  {
+    "git@github.com:romgrk/nvim-treesitter-context",
+    config = function()
+      require("conf.treesitter-context").setup()
+    end,
+  },
+  {
+    "git@github.com:lewis6991/impatient.nvim",
+    config = function()
+      require("conf.impatient").setup()
+    end,
+  },
+  {
+    "git@github.com:folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  {
+    "git@github.com:phaazon/hop.nvim",
+    event = "BufRead",
+    config = function()
+      require("hop").setup()
+      vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
+      vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+    end,
+  },
+  -- {
+  --   "git@github.com:ggandor/lightspeed.nvim",
+  --   event = "BufRead",
+  -- },
+  {
+    "git@github.com:norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({ "*" }, {
+        RGB = true, -- #RGB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes
+        names = true,
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        lowercase = true,
+      })
+    end,
+  },
+  {
+    "git@github.com:folke/todo-comments.nvim",
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup()
+    end,
+  },
+  { "git@github.com:tpope/vim-repeat" },
+  {
+    "git@github.com:ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function()
+      require "lsp_signature".setup()
+    end
+  },
+  {
     "git@github.com:stevearc/aerial.nvim",
     config = function()
       require("conf.aerial").setup()
