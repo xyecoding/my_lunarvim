@@ -1,0 +1,1 @@
+nvim -u "~/.config/lvim/mylvim/mini_init.lua"  "$@"
