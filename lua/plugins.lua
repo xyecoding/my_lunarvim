@@ -25,11 +25,6 @@ lvim.plugins = {
       local snippets_vscode = { friendly_path, utils.join_paths(config_dir, "mylvim", "snippets", "vscode") }
       local snippets_lua = { utils.join_paths(config_dir, "mylvim", "snippets", "lua") }
       local snippets_snipmate = { utils.join_paths(config_dir, "mylvim", "snippets", "snipmate") }
-      -- print(utils.join_paths(get_runtime_dir(), "site", "pack", "packer", "start", "friendly-snippets"))
-      -- print(user_snippets)
-      -- if utils.is_directory(user_snippets) then
-      --   path_vscode[#path_vscode + 1] = user_snippets
-      -- end
       require("luasnip.loaders.from_lua").lazy_load({
         paths = snippets_lua,
       })
