@@ -10,6 +10,8 @@ set -x PATH ~/.local/bin $PATH
 # set -x PATH ~/.local/share/nvim/lsp_servers/latex/ $PATH
 # set -x PATH ~/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin $PATH
 
+bind -M insert \ck 'accept-autosuggestion'
+fish_vi_key_bindings
 alias mvi ~/.config/lvim/mylvim/mvi
 alias vi lvim
 alias v lvim

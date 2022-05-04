@@ -1,5 +1,11 @@
 lvim.plugins = {
   {
+    "git@github.com:stevearc/aerial.nvim",
+    config = function()
+      require("conf.aerial").setup()
+    end,
+  },
+  {
     "git@github.com:mbbill/undotree",
     config = function()
       vim.cmd(
@@ -81,15 +87,15 @@ lvim.plugins = {
       vim.cmd([[autocmd FileType markdown let b:surround_100 = "<s><span>\r</span></s>"]])
     end
   },
-  {
-    "git@github.com:preservim/tagbar",
-    config = function()
-      vim.cmd([[nnoremap tb :TagbarOpenAutoClose<CR>]])
-      vim.g.tagbar_sort = 0
-    end
-  },
-  {
-    "git@github.com:taoso/tagbar-markdown",
-    ft = "markdown"
-  }
+  -- {
+  --   "git@github.com:preservim/tagbar",
+  --   config = function()
+  --     vim.cmd([[nnoremap tb :TagbarOpenAutoClose<CR>]])
+  --     vim.g.tagbar_sort = 0
+  --   end
+  -- },
+  -- {
+  --   "git@github.com:taoso/tagbar-markdown",
+  --   ft = "markdown"
+  -- }
 }
