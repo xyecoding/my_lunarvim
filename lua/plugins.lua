@@ -5,12 +5,16 @@ lvim.plugins = {
       require("conf.fidget").setup()
     end,
   },
-  {
-    "git@github.com:nvim-pack/nvim-spectre",
-    config = function()
-      require("conf.nvim-spectre").setup()
-    end,
-  },
+  -- {
+  --   "git@github.com:nvim-pack/nvim-spectre",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("spectre").setup()
+  --   end,
+  --   -- config = function()
+  --   --   require("conf.nvim-spectre").setup()
+  --   -- end,
+  -- },
   {
     "git@github.com:andymass/vim-matchup",
     event = "CursorMoved",
