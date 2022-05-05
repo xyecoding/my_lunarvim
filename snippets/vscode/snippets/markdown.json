@@ -1,54 +1,54 @@
 {
-  "sftm": {
+  "ftm": {
     "prefix": "sftm",
     "body": [
       "<font color=magenta>[FROM ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}]</font>"
     ],
     "description": "DIARY: FROM TIME"
   },
-  "sdtm": {
+  "dtm": {
     "prefix": "sdtm",
     "body": [
       "<font color=red>[DONE ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}]</font>"
     ],
     "description": "DIARY: DONE TIME"
   },
-  "sfdt": {
+  "fdt": {
     "prefix": "sfdt",
     "body": [
       "<font color=magenta>[FROM  ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}]</font>"
     ],
     "description": "DIARY: FROM DATE"
   },
-  "sddt": {
+  "ddt": {
     "prefix": "sddt",
     "body": [
       "<font color=red>[DONE  ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}]</font>"
     ],
     "description": "DIARY: DONE DATE"
   },
-  "sltm": {
+  "ltm": {
     "prefix": "sltm",
     "body": [
       "<font color=green>[LEAVE ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}]</font>"
     ],
     "description": "DIARY: LEAVE TIME"
   },
-  "sdl": {
+  "dl": {
     "prefix": "sdl",
     "body": [
       "<font color=red>[DEADLINE $1 ]</font> $0"
     ],
     "description": "DIARY: DEADLINE"
   },
-  "sltt": {
+  "ltt": {
     "prefix": "sltt",
     "body": [
       "<font color=blue>**[LONG TIME TASK]**</font>"
     ],
     "description": "DIARY: LONE TIME TASK"
   },
-  "scolor": {
+  "color": {
     "prefix": "scolor",
     "body": [
       "<font color=$1>$2</font>$0"

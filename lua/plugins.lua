@@ -1,5 +1,15 @@
 lvim.plugins = {
   {
+    "git@github.com:voldikss/vim-translator",
+    config = function()
+      vim.cmd [[
+    let g:translator_target_lang = 'zh'
+    let g:translator_default_engines = ['youdao', 'bing']
+    nmap <silent> <Leader>t <Plug>TranslateW
+]]
+    end,
+  },
+  {
     "git@github.com:j-hui/fidget.nvim",
     config = function()
       require("conf.fidget").setup()

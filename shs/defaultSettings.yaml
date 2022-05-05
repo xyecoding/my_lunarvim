@@ -86,19 +86,19 @@ cycleThroughBackUps: 0
 
 # preferences for information displayed in the log file
 logFilePreferences:
-  showEveryYamlRead: 1
+  showEveryYamlRead: 0
   showAmalgamatedSettings: 0
   showDecorationStartCodeBlockTrace: 0
   showDecorationFinishCodeBlockTrace: 0
   endLogFileWith: "--------------"
-  showGitHubInfoFooter: 1
+  showGitHubInfoFooter: 0
   Dumper:
-    Terse: 1
-    Indent: 1
-    Useqq: 1
-    Deparse: 1
+    Terse: 0
+    Indent: 0
+    Useqq: 0
+    Deparse: 0
     Quotekeys: 0
-    Sortkeys: 1
+    Sortkeys: 0
     Pair: " => "
 
 #  verbatim environments specified
