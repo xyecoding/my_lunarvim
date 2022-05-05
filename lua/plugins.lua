@@ -5,7 +5,7 @@ lvim.plugins = {
       vim.cmd [[
     let g:translator_target_lang = 'zh'
     let g:translator_default_engines = ['youdao', 'bing']
-    nmap <silent> <Leader>t <Plug>TranslateW
+    nmap <silent> \t <Plug>TranslateW
 ]]
     end,
   },
@@ -81,7 +81,7 @@ lvim.plugins = {
     "git@github.com:folke/todo-comments.nvim",
     event = "BufRead",
     config = function()
-      require("todo-comments").setup()
+      require("conf.todo-comments").setup()
     end,
   },
   { "git@github.com:tpope/vim-repeat" },

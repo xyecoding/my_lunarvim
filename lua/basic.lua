@@ -49,18 +49,20 @@ lvim.builtin.telescope.defaults.mappings = {
 lvim.builtin.which_key.mappings["w"] = { "<cmd>w<CR>", "Save" }
 lvim.builtin.which_key.mappings["q"] = { "<cmd>q<CR>", "Quit" }
 lvim.builtin.which_key.mappings["Q"] = { "<cmd>q!<CR>", "Quit!" }
+lvim.builtin.which_key.mappings["so"] = { "<cmd>TodoTelescope<cr>", "TODO" }
 -- use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
 
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+trouble",
---   r = { "<cmd>trouble lsp_references<cr>", "references" },
---   f = { "<cmd>trouble lsp_definitions<cr>", "definitions" },
---   d = { "<cmd>trouble document_diagnostics<cr>", "diagnostics" },
---   q = { "<cmd>trouble quickfix<cr>", "quickfix" },
---   l = { "<cmd>trouble loclist<cr>", "locationlist" },
---   w = { "<cmd>trouble workspace_diagnostics<cr>", "wordspace diagnostics" },
--- }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+trouble",
+  r = { "<cmd>trouble lsp_references<cr>", "references" },
+  f = { "<cmd>trouble lsp_definitions<cr>", "definitions" },
+  d = { "<cmd>trouble document_diagnostics<cr>", "diagnostics" },
+  q = { "<cmd>trouble quickfix<cr>", "quickfix" },
+  l = { "<cmd>trouble loclist<cr>", "locationlist" },
+  w = { "<cmd>trouble workspace_diagnostics<cr>", "wordspace diagnostics" },
+  o = { "<cmd>TodoTrouble<cr>", "TODO" }
+}
 
 -- todo: user config for predefined plugins
 -- after changing plugin config exit and reopen lunarvim, run :packerinstall :packercompile
