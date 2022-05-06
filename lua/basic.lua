@@ -10,20 +10,40 @@ lvim.keys.normal_mode["0"] = "^"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<c-q>"] = ":q<cr>"
 
-vim.opt["relativenumber"] = true
-vim.opt["spell"] = true
-vim.opt["cmdheight"] = 1
-vim.opt["clipboard"] = ""
-vim.opt["wrap"] = true
-vim.opt["mouse"] = ""
-vim.opt["foldmethod"] = "expr"
-vim.opt["foldenable"] = false
-vim.opt["foldlevel"] = 99
-vim.opt["foldexpr"] = "nvim_treesitter#foldexpr()"
+vim.opt.relativenumber = true
+vim.opt.spell = true
+vim.opt.cmdheight = 1
+vim.opt.clipboard = ""
+vim.opt.wrap = true
+vim.opt.mouse = ""
+vim.opt.foldmethod = "expr"
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- vim.opt["swapfile"] = true
 -- vim.opt.swapfile = true
 
+lvim.builtin.telescope.defaults.wrap_results = true
 
+-- lvim.builtin.telescope = vim.tbl_extend("force", lvim.builtin.telescope, {
+--   defaults = {
+--     wrap_results = true,
+--     layout_config = {
+--       width = 0.75,
+--       preview_cutoff = 120,
+--       horizontal = {
+--         preview_width = function(_, cols, _)
+--           if cols < 120 then
+--             return math.floor(cols * 0.5)
+--           end
+--           return math.floor(cols * 0.6)
+--         end,
+--         mirror = false,
+--       },
+--       vertical = { mirror = false },
+--     },
+--   },
+-- })
 
 -- change telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
