@@ -3,6 +3,12 @@ vim.cmd [[
     autocmd!
     autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
   augroup end
+
+"  augroup remember_folds
+"    autocmd!
+"    autocmd BufWinLeave * mkview
+"    autocmd BufWinEnter * loadview
+"  augroup END
 ]]
 -- The vim script command should be write in [[]]
 lvim.autocommands.custom_groups = {
