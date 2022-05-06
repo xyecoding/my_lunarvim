@@ -1,6 +1,6 @@
 lvim.plugins = {
   {
-    "git@github.com:voldikss/vim-translator",
+    "voldikss/vim-translator",
     config = function()
       vim.cmd [[
     let g:translator_target_lang = 'zh'
@@ -10,13 +10,13 @@ lvim.plugins = {
     end,
   },
   {
-    "git@github.com:j-hui/fidget.nvim",
+    "j-hui/fidget.nvim",
     config = function()
       require("conf.fidget").setup()
     end,
   },
   -- {
-  --   "git@github.com:nvim-pack/nvim-spectre",
+  --   "nvim-pack/nvim-spectre",
   --   event = "BufRead",
   --   config = function()
   --     require("spectre").setup()
@@ -26,30 +26,30 @@ lvim.plugins = {
   --   -- end,
   -- },
   {
-    "git@github.com:andymass/vim-matchup",
+    "andymass/vim-matchup",
     event = "CursorMoved",
     config = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
   {
-    "git@github.com:romgrk/nvim-treesitter-context",
+    "romgrk/nvim-treesitter-context",
     config = function()
       require("conf.treesitter-context").setup()
     end,
   },
   {
-    "git@github.com:lewis6991/impatient.nvim",
+    "lewis6991/impatient.nvim",
     config = function()
       require("conf.impatient").setup()
     end,
   },
   {
-    "git@github.com:folke/trouble.nvim",
+    "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
   {
-    "git@github.com:phaazon/hop.nvim",
+    "phaazon/hop.nvim",
     event = "BufRead",
     config = function()
       require("hop").setup()
@@ -58,11 +58,11 @@ lvim.plugins = {
     end,
   },
   -- {
-  --   "git@github.com:ggandor/lightspeed.nvim",
+  --   "ggandor/lightspeed.nvim",
   --   event = "BufRead",
   -- },
   {
-    "git@github.com:norcalli/nvim-colorizer.lua",
+    "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({ "*" }, {
         RGB = true, -- #RGB hex codes
@@ -78,28 +78,28 @@ lvim.plugins = {
     end,
   },
   {
-    "git@github.com:folke/todo-comments.nvim",
+    "folke/todo-comments.nvim",
     event = "BufRead",
     config = function()
       require("conf.todo-comments").setup()
     end,
   },
-  { "git@github.com:tpope/vim-repeat" },
+  { "tpope/vim-repeat" },
   {
-    "git@github.com:ray-x/lsp_signature.nvim",
+    "ray-x/lsp_signature.nvim",
     event = "BufRead",
     config = function()
       require "lsp_signature".setup()
     end
   },
   {
-    "git@github.com:stevearc/aerial.nvim",
+    "stevearc/aerial.nvim",
     config = function()
       require("conf.aerial").setup()
     end,
   },
   {
-    "git@github.com:mbbill/undotree",
+    "mbbill/undotree",
     config = function()
       vim.cmd(
       [[
@@ -109,27 +109,27 @@ lvim.plugins = {
       )
     end
   },
-  {
-    "git@github.com:L3MON4D3/LuaSnip",
-    config = function()
-      local utils = require "lvim.utils"
-      local config_dir = get_config_dir()
-      local friendly_path = utils.join_paths(get_runtime_dir(), "site", "pack", "packer", "start", "friendly-snippets")
-      local snippets_vscode = { friendly_path, utils.join_paths(config_dir, "mylvim", "snippets", "vscode") }
-      local snippets_lua = { utils.join_paths(config_dir, "mylvim", "snippets", "lua") }
-      local snippets_snipmate = { utils.join_paths(config_dir, "mylvim", "snippets", "snipmate") }
-      require("luasnip.loaders.from_lua").lazy_load({
-        paths = snippets_lua,
-      })
-      require("luasnip.loaders.from_vscode").lazy_load({
-        paths = snippets_vscode,
-      })
-      require("luasnip.loaders.from_snipmate").lazy_load({
-        paths = snippets_snipmate,
-      })
-    end,
-  },
-  { "git@github.com:lervag/vimtex",
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   config = function()
+  --     local utils = require "lvim.utils"
+  --     local config_dir = get_config_dir()
+  --     local friendly_path = utils.join_paths(get_runtime_dir(), "site", "pack", "packer", "start", "friendly-snippets")
+  --     local snippets_vscode = { friendly_path, utils.join_paths(config_dir, "mylvim", "snippets", "vscode") }
+  --     local snippets_lua = { utils.join_paths(config_dir, "mylvim", "snippets", "lua") }
+  --     local snippets_snipmate = { utils.join_paths(config_dir, "mylvim", "snippets", "snipmate") }
+  --     require("luasnip.loaders.from_lua").lazy_load({
+  --       paths = snippets_lua,
+  --     })
+  --     require("luasnip.loaders.from_vscode").lazy_load({
+  --       paths = snippets_vscode,
+  --     })
+  --     require("luasnip.loaders.from_snipmate").lazy_load({
+  --       paths = snippets_snipmate,
+  --     })
+  --   end,
+  -- },
+  { "lervag/vimtex",
     -- opt = true,
     config = function()
       vim.g.vimtex_view_general_viewer = 'qpdfview'
@@ -149,13 +149,13 @@ lvim.plugins = {
     ft = 'tex'
   },
   -- {
-  --   "git@github.com:ellisonleao/glow.nvim.git",
+  --   "ellisonleao/glow.nvim.git",
   --   branch = "main",
   --   ft = { "markdown" }
   --   -- run = "yay -S glow"
   -- },
   {
-    "git@github.com:iamcco/markdown-preview.nvim",
+    "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = "markdown",
     config = function()
@@ -165,25 +165,25 @@ lvim.plugins = {
       vim.cmd([[nmap \ll  <Plug>MarkdownPreview]])
     end,
   },
-  { "git@github.com:dkarter/bullets.vim",
+  { "dkarter/bullets.vim",
     ft = { "markdown", "text", "gitcommit", "scratch" }
   },
   {
-    "git@github.com:tpope/vim-surround",
+    "tpope/vim-surround",
     -- keys = { "c", "d", "y" },
     config = function()
       vim.cmd([[autocmd FileType markdown let b:surround_100 = "<s><span>\r</span></s>"]])
     end
   },
   -- {
-  --   "git@github.com:preservim/tagbar",
+  --   "preservim/tagbar",
   --   config = function()
   --     vim.cmd([[nnoremap tb :TagbarOpenAutoClose<CR>]])
   --     vim.g.tagbar_sort = 0
   --   end
   -- },
   -- {
-  --   "git@github.com:taoso/tagbar-markdown",
+  --   "taoso/tagbar-markdown",
   --   ft = "markdown"
   -- }
 }
