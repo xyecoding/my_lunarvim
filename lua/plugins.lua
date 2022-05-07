@@ -1,6 +1,7 @@
 lvim.plugins = {
   {
     "voldikss/vim-translator",
+    event = "CursorMoved",
     config = function()
       vim.cmd [[
     let g:translator_target_lang = 'zh'
@@ -161,8 +162,11 @@ lvim.plugins = {
     config = function()
       local root_dir = os.getenv("HOME")
       vim.g.mkdp_markdown_css = root_dir .. '/.local/share/lunarvim/lvim/lua/lvim/my_config/markdown.css'
+      vim.g.mkdp_auto_close = 0
       -- lvim.keys.normal_mode['\\ll'] = [[<Plug>MarkdownPreview]]
-      vim.cmd([[nmap \ll  <Plug>MarkdownPreview]])
+      -- vim.cmd([[nmap \ll  <Plug>MarkdownPreview]])
+      -- lvim.keys.normal_mode["\\ll"] = "<Plug>MarkdownPreview"
+      vim.api.nvim_set_keymap('n', '\\ll', '<Plug>MarkdownPreview', { noremap = true, silent = true })
     end,
   },
   { "dkarter/bullets.vim",
