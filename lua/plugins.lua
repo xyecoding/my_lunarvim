@@ -1,5 +1,11 @@
 lvim.plugins = {
   {
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require("conf.dap-ui").setup()
+    end,
+  },
+  {
     "voldikss/vim-translator",
     event = "CursorMoved",
     config = function()

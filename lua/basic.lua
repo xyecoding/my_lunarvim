@@ -5,6 +5,9 @@ lvim.colorscheme = "onedarker"
 -- local luasnip = require("luasnip")
 lvim.keys.insert_mode["<c-l>"] = "<right>"
 lvim.keys.normal_mode["0"] = "^"
+lvim.keys.insert_mode["jj"] = false
+lvim.keys.insert_mode["jk"] = false
+lvim.keys.insert_mode["kj"] = false
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<c-up>"] = false
 -- edit a default keymapping
