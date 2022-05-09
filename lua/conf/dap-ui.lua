@@ -7,11 +7,12 @@ local function config_dapui()
     dapui.open()
     vim.api.nvim_command("DapVirtualTextEnable")
   end
+
   local debug_close = function()
     dap.repl.close()
     dapui.close()
     vim.api.nvim_command("DapVirtualTextDisable")
-    vim.api.nvim_command("bdelete! term:") -- close debug temrinal
+    -- vim.api.nvim_command("bdelete! term:") -- close debug temrinal
   end
 
   dap.listeners.after.event_initialized["dapui_config"] = function()

@@ -1,5 +1,11 @@
 lvim.plugins = {
   {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function()
+      require("conf.dap-virtual-text").setup()
+    end,
+  },
+  {
     "rcarriga/nvim-dap-ui",
     config = function()
       require("conf.dap-ui").setup()
