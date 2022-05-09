@@ -9,7 +9,6 @@ lvim.keys.insert_mode["kj"] = false
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<c-q>"] = ":q<cr>"
 lvim.builtin.telescope.defaults.mappings = {
-  -- for input mode
   i = {
     ["<c-j>"] = actions.move_selection_next,
     ["<c-k>"] = actions.move_selection_previous,
@@ -29,10 +28,15 @@ lvim.builtin.which_key.mappings["w"] = { "<cmd>w<CR>", "Save" }
 lvim.builtin.which_key.mappings["q"] = { "<cmd>q<CR>", "Quit" }
 lvim.builtin.which_key.mappings["Q"] = { "<cmd>q!<CR>", "Quit!" }
 lvim.builtin.which_key.mappings["so"] = { "<cmd>TodoTelescope<cr>", "TODO" }
-lvim.builtin.which_key.mappings["ss"] = { "<cmd>SessionManager load_session<cr>", "Projects" }
 lvim.builtin.which_key.mappings["de"] = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" }
 -- use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
+
+lvim.builtin.which_key.mappings["ss"] = {
+  name = "+sessions",
+  l = { "<cmd>SessionManager load_session<cr>", "Load Projects" },
+  d = { "<cmd>SessionManager delete_session<cr>", "Delete Projects" }
+}
 
 lvim.builtin.which_key.mappings["t"] = {
   name = "+trouble",

@@ -2,7 +2,6 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
--- local luasnip = require("luasnip")
 
 vim.opt.relativenumber = true
 vim.opt.spell = true
@@ -27,7 +26,6 @@ telescope.load_extension("ui-select")
 -- after changing plugin config exit and reopen lunarvim, run :packerinstall :packercompile
 lvim.builtin.alpha.active = true
 lvim.builtin.dap.active = true
-lvim.builtin.terminal.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true

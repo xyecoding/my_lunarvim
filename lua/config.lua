@@ -7,7 +7,7 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-vim.opt.shell = "/bin/sh"
+-- vim.opt.shell = "/bin/sh"
 vim.opt.rtp:append("~/.config/lvim/mylvim")
 require('plugins')
 require("null_ls")
