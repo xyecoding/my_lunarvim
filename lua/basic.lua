@@ -25,7 +25,6 @@ vim.opt.foldlevel = 99
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- vim.opt["swapfile"] = true
 -- vim.opt.swapfile = true
-
 lvim.builtin.telescope.defaults.wrap_results = true
 
 -- lvim.builtin.telescope = vim.tbl_extend("force", lvim.builtin.telescope, {
@@ -51,6 +50,8 @@ lvim.builtin.telescope.defaults.wrap_results = true
 -- change telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
+local _, telescope = pcall(require, "telescope")
+telescope.load_extension("ui-select")
 
 lvim.builtin.telescope.defaults.mappings = {
   -- for input mode
@@ -73,6 +74,7 @@ lvim.builtin.which_key.mappings["w"] = { "<cmd>w<CR>", "Save" }
 lvim.builtin.which_key.mappings["q"] = { "<cmd>q<CR>", "Quit" }
 lvim.builtin.which_key.mappings["Q"] = { "<cmd>q!<CR>", "Quit!" }
 lvim.builtin.which_key.mappings["so"] = { "<cmd>TodoTelescope<cr>", "TODO" }
+lvim.builtin.which_key.mappings["ss"] = { "<cmd>SessionManager load_session<cr>", "Projects" }
 lvim.builtin.which_key.mappings["de"] = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" }
 -- use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
