@@ -29,13 +29,14 @@ lvim.builtin.which_key.mappings["q"] = { "<cmd>q<CR>", "Quit" }
 lvim.builtin.which_key.mappings["Q"] = { "<cmd>q!<CR>", "Quit!" }
 lvim.builtin.which_key.mappings["so"] = { "<cmd>TodoTelescope<cr>", "TODO" }
 lvim.builtin.which_key.mappings["de"] = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" }
--- use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings.s["p"] = { "<CMD>Telescope projects<CR>", "Project" }
+
 -- lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
 
 lvim.builtin.which_key.mappings["ss"] = {
   name = "+sessions",
-  l = { "<cmd>SessionManager load_session<cr>", "Load Projects" },
-  d = { "<cmd>SessionManager delete_session<cr>", "Delete Projects" }
+  l = { "<cmd>SessionManager load_session<cr>", "Load Session" },
+  d = { "<cmd>SessionManager delete_session<cr>", "Delete Session" }
 }
 
 lvim.builtin.which_key.mappings["t"] = {
