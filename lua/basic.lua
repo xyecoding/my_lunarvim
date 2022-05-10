@@ -3,6 +3,18 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 
+if vim.fn.has "wsl" == 1 then
+  vim.g.clipboard = {
+    copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+    },
+    paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+  }
+end
 vim.opt.relativenumber = true
 vim.opt.spell = true
 vim.opt.cmdheight = 1
@@ -63,3 +75,49 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- ---@usage disable automatic installation of servers
 lvim.lsp.automatic_servers_installation = true
+
+-- lvim.builtin.treesitter["textobjects "] = {
+--   swap = {
+--     enable = false,
+--   },
+--   select = {
+--     enable = true,
+--     -- Automatically jump forward to textobj, similar to targets.vim
+--     lookahead = true,
+--     keymaps = {
+--       -- You can use the capture groups defined in textobjects.scm
+--       ["af"] = "@function.outer",
+--       ["if"] = "@function.inner",
+--       ["ac"] = "@class.outer",
+--       ["ic"] = "@class.inner",
+--     },
+--   },
+--   move = {
+--     enable = true,
+--     set_jumps = false, -- whether to set jumps in the jumplist
+--     goto_next_start = {
+--       ["]]"] = "@function.outer",
+--       -- ["]["] = "@function.outer",
+--     },
+--     goto_next_end = {
+--       ["]["] = "@function.outer",
+--       -- ["]["] = "@class.outer",
+--     },
+--     goto_previous_start = {
+--       ["[["] = "@function.outer",
+--       -- ["[]"] = "@function.outer",
+--     },
+--     goto_previous_end = {
+--       ["[]"] = "@function.outer",
+--       -- ["[]"] = "@class.outer",
+--     },
+--   },
+--   lsp_interop = {
+--     enable = false,
+--     border = 'none',
+--     peek_definition_code = {
+--       ["<leader>pf"] = "@function.outer",
+--       ["<leader>pF"] = "@class.outer",
+--     },
+--   },
+-- }
