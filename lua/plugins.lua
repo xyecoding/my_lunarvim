@@ -1,4 +1,13 @@
 lvim.plugins = {
+  { 'bennypowers/nvim-regexplainer',
+    config = function()
+      require("conf.nvim-regexplainer").setup()
+    end,
+    -- config = function() require 'regexplainer'.setup() end,
+    requires = {
+      'nvim-treesitter/nvim-treesitter',
+      'MunifTanjim/nui.nvim',
+    } },
   {
     "lukas-reineke/indent-blankline.nvim", -- indent blankline
     config = function()
