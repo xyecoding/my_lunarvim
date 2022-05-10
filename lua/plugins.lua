@@ -1,7 +1,7 @@
 lvim.plugins = {
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  -- },
   {
     "nvim-telescope/telescope-ui-select.nvim",
   },
