@@ -1,4 +1,10 @@
 lvim.plugins = {
+  {
+    "lukas-reineke/indent-blankline.nvim", -- indent blankline
+    config = function()
+      require("conf.indent-blankline").setup()
+    end,
+  },
   -- {
   --   "nvim-treesitter/nvim-treesitter-textobjects",
   -- },
@@ -143,7 +149,7 @@ lvim.plugins = {
       vim.g.vimtex_view_general_options = [[--unique @pdf\#src:@tex:@line:@col]]
       -- vim.g.vimtex_quickfix_ignore_filters = [['Warning', 'warning', 'badness', 'Overfull']]
       vim.g.vimtex_quickfix_enabled = 0
-      -- vim.g.vimtex_syntax_enabled = 1
+      vim.g.vimtex_syntax_enabled = 1
       -- vim.g.vimtex_quickfix_autojump = 1
       -- vim.g.vimtex_quickfix_mode = 2
       -- vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
