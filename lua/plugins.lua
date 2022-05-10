@@ -1,7 +1,7 @@
 lvim.plugins = {
-  -- {
-  --   "nvim-treesitter/nvim-treesitter-textobjects",
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   {
     "nvim-telescope/telescope-ui-select.nvim",
   },
@@ -176,13 +176,13 @@ lvim.plugins = {
   { "dkarter/bullets.vim",
     ft = { "markdown", "text", "gitcommit", "scratch" }
   },
-  {
-    "tpope/vim-surround",
-    -- keys = { "c", "d", "y" },
-    config = function()
-      vim.cmd([[autocmd FileType markdown let b:surround_100 = "<s><span>\r</span></s>"]])
-    end
-  },
+  -- {
+  --   "tpope/vim-surround",
+  --   -- keys = { "c", "d", "y" },
+  --   config = function()
+  --     vim.cmd([[autocmd FileType markdown let b:surround_100 = "<s><span>\r</span></s>"]])
+  --   end
+  -- },
   -- {
   --   "preservim/tagbar",
   --   config = function()

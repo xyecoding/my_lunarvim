@@ -1,4 +1,11 @@
 {
+  "date": {
+    "prefix": "date",
+    "body": [
+      "<font color=magenta>[${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}]</font>"
+    ],
+    "description": "date"
+  },
   "ftm": {
     "prefix": "sftm",
     "body": [
