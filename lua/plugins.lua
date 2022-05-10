@@ -63,12 +63,12 @@ lvim.plugins = {
       require("conf.treesitter-context").setup()
     end,
   },
-  {
-    "lewis6991/impatient.nvim",
-    config = function()
-      require("conf.impatient").setup()
-    end,
-  },
+  -- {
+  --   "lewis6991/impatient.nvim",
+  --   config = function()
+  --     require("conf.impatient").setup()
+  --   end,
+  -- },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
