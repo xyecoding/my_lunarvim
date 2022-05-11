@@ -2,7 +2,11 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
-
+-- vim.cmd [[
+-- filetype on
+-- filetype plugin on
+-- filetype indent on
+-- ]]
 if vim.fn.has "wsl" == 1 then
   vim.g.clipboard = {
     copy = {

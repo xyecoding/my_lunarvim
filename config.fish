@@ -39,7 +39,7 @@ alias tnw 'tmux new-window -n'
 alias bk '~/.config/lvim/mylvim/backup_files.fish'
 alias gp 'grep -n -H -R'
 
-bind -M insert \ck 'accept-autosuggestion'
+bind -M insert \cj 'accept-autosuggestion'
 set -U FZF_COMPLETE 0
 set -U FZF_FIND_FILE_COMMAND "ag -l --hidden --ignore .git . \$dir 2> /dev/null"
 # bind -M default cd  '__fzf_cd'
