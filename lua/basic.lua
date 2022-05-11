@@ -26,6 +26,7 @@ vim.opt.clipboard = ""
 vim.opt.wrap = true
 vim.opt.mouse = ""
 vim.opt.foldmethod = "expr"
+vim.opt.autoindent = true
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
